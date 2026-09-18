@@ -1,0 +1,33 @@
+[Unit]
+Description=ChatGPT Nextcloud document tools with OAuth and local OCR
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nextcloud-mcp
+Group=nextcloud-mcp
+WorkingDirectory=/opt/nextcloud-mcp
+Environment=NEXTCLOUD_MCP_CONFIG=/etc/nextcloud-mcp/config.json
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/nextcloud-mcp/.venv/bin/python /opt/nextcloud-mcp/server.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/nextcloud-mcp
+ProtectKernelTunables=false
+CapabilityBoundingSet=
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+LimitCORE=0
+MemoryHigh=3G
+MemoryMax=4G
+
+[Install]
+WantedBy=multi-user.target

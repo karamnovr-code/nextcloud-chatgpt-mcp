@@ -1,0 +1,17 @@
+{
+  "public_url": "https://mcp.example.com",
+  "nextcloud_url": "https://cloud.example.com",
+  "owner": "nextcloud-user-id",
+  "client_id": "replace-with-nextcloud-oauth-client-id",
+  "client_secret": "replace-with-nextcloud-oauth-client-secret",
+  "jwt_signing_key": "replace-with-a-long-random-persistent-secret",
+  "state_dir": "/var/lib/nextcloud-mcp/oauth",
+  "jobs_dir": "/var/lib/nextcloud-mcp/jobs",
+  "port": 9385,
+  "max_input_bytes": 268435456,
+  "read_roots": ["ChatGPT Nextcloud", "Documents", "Photos"],
+  "write_roots": ["ChatGPT Nextcloud"],
+  "deny_roots": ["Documents/System"],
+  "read_only_segments": ["Source materials"],
+  "oauth_redirect_bridge": true
+}
